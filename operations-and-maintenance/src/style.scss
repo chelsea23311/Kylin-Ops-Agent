@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global ─────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background-color: #f1f1f1;
+  color: #171c20;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Material Symbols ──────────────────────────── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+
+/* ─── Custom Utilities ──────────────────────────── */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.neon-glow {
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
+}
+
+.neon-text-glow {
+  text-shadow: 0 0 8px rgba(14, 165, 233, 0.25);
+}
+
+.cyber-glow-error {
+  box-shadow: 0 0 12px rgba(186, 26, 26, 0.15);
+}
+
+.cyber-glow-success {
+  box-shadow: 0 0 12px rgba(78, 222, 163, 0.15);
+}
+
+.cyber-border-top {
+  border-top: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right,  rgba(110, 120, 129, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(110, 120, 129, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar          { width: 6px; height: 6px; }
+::-webkit-scrollbar-track    { background: #eaeef4; }
+::-webkit-scrollbar-thumb    { background: #bec8d2; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #6e7881; }
+
+/* ─── Element Plus Light/Daytime Override ────────────────── */
+
+/* Drawer */
+.el-drawer {
+  background-color: #ffffff !important;
+  border-left: 1px solid #dee3e9 !important;
+}
+.el-drawer__header {
+  background-color: #f0f4fa !important;
+  border-bottom: 1px solid #dee3e9 !important;
+  color: #171c20 !important;
+  margin-bottom: 0 !important;
+  padding: 16px 24px !important;
+}
+.el-drawer__body {
+  background-color: #f1f1f1 !important;
+  padding: 0 !important;
+  overflow-y: auto;
+}
+.el-drawer__close-btn {
+  color: #6e7881 !important;
+}
+.el-drawer__close-btn:hover {
+  color: #171c20 !important;
+}
+
+/* Form */
+.el-input__wrapper,
+.el-select .el-input__wrapper {
+  background-color: #ffffff !important;
+  border-color: #bec8d2 !important;
+  box-shadow: none !important;
+  border-radius: 0.125rem !important;
+}
+.el-input__wrapper.is-focus,
+.el-select .el-input.is-focus .el-input__wrapper {
+  border-color: #0ea5e9 !important;
+  box-shadow: 0 0 0 1px #0ea5e9 !important;
+}
+.el-input__inner {
+  color: #171c20 !important;
+  font-size: 14px !important;
+  background-color: transparent !important;
+}
+.el-input__inner::placeholder {
+  color: #6e7881 !important;
+}
+
+/* Select */
+.el-select-dropdown {
+  background-color: #ffffff !important;
+  border-color: #bec8d2 !important;
+}
+.el-select-dropdown__item {
+  color: #171c20 !important;
+}
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover {
+  background-color: #f0f4fa !important;
+}
+.el-select-dropdown__item.selected {
+  color: #0ea5e9 !important;
+}
+.el-popper.is-light {
+  background: #ffffff !important;
+  border-color: #bec8d2 !important;
+}
+
+/* Switch */
+.el-switch__core {
+  border-color: transparent !important;
+}
+.el-switch.is-checked .el-switch__core {
+  background-color: #0ea5e9 !important;
+  border-color: #0ea5e9 !important;
+}
+.el-switch .el-switch__core {
+  background-color: #bec8d2 !important;
+}
+
+/* Button */
+.el-button--primary {
+  background-color: #0ea5e9 !important;
+  border-color: #0ea5e9 !important;
+  color: #ffffff !important;
+}
+.el-button--primary:hover {
+  background-color: #006591 !important;
+}
+
+/* Message */
+.el-message {
+  background-color: #ffffff !important;
+  border-color: #dee3e9 !important;
+  color: #171c20 !important;
+}
+
+/* Pagination */
+.el-pagination {
+  color: #3e4850 !important;
+}
+.el-pagination button,
+.el-pager li {
+  background-color: transparent !important;
+  color: #3e4850 !important;
+}
+.el-pager li.is-active {
+  color: #0ea5e9 !important;
+  font-weight: 600 !important;
+}
+.el-pager li:hover {
+  color: #0ea5e9 !important;
+}
+
+/* Tag */
+.el-tag {
+  border-radius: 0.125rem !important;
+}

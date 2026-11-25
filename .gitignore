@@ -1,0 +1,56 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.bypy/
+.local/
+.vscode/
+.idea/
+.codex/
+.agents/
+
+# Dependencies, caches and build output
+venv/
+.venv/
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.DS_Store
+
+# External model downloads (see README)
+/audit_model_v1/
+/models/
+*.safetensors
+*.onnx
+*.h5
+*.msgpack
+
+# Runtime state; start with an empty database and memory store
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.log
+/runtime/
+/data/rag_store/*
+/program2/data/
+/program2/*_archive*
+/program2/*_backup*
+*.bak
+
+# Historical code and generated archives
+/kylin-web/
+/release/
+*.tar.gz
+*.tar.gz.part-*
+*.zip
+
+# Additional upload exclusions
+/data/rag_store/
+*.pyc

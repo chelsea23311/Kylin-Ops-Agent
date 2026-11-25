@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>麒翼睿策</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="boot-fallback" style="display:none;position:fixed;inset:0;background:#f1f1f1;color:#171c20;font-family:Inter,Arial,sans-serif;z-index:9999;">
+      <div style="max-width:640px;margin:10vh auto;padding:24px;line-height:1.6;">
+        <h2 style="margin:0 0 10px 0;font-size:22px;">页面加载中</h2>
+        <p id="boot-msg" style="margin:0 0 14px 0;color:#3e4850;">正在加载前端资源，请稍候。</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button onclick="location.reload()" style="padding:8px 14px;border:1px solid #6e7881;background:#ffffff;color:#171c20;border-radius:6px;cursor:pointer;">重新加载</button>
+          <button onclick="location.href='/login'" style="padding:8px 14px;border:1px solid #6e7881;background:#ffffff;color:#171c20;border-radius:6px;cursor:pointer;">转到登录页</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var fallback = document.getElementById('boot-fallback')
+        var msg = document.getElementById('boot-msg')
+        var app = document.getElementById('app')
+        var shown = false
+
+        function show(text) {
+          if (!fallback || shown) return
+          shown = true
+          if (text && msg) msg.textContent = text
+          fallback.style.display = 'block'
+          var title = fallback.querySelector('h2')
+          if (title) title.textContent = '页面加载异常'
+        }
+
+        // 8 秒未挂载应用则提示，避免用户看到空白页。
+        var t = setTimeout(function () {
+          if (!app || app.childElementCount === 0) {
+            show('前端资源初始化超时，请点击“重新加载”。')
+          }
+        }, 8000)
+
+        var observer = new MutationObserver(function () {
+          if (app && app.childElementCount > 0) {
+            clearTimeout(t)
+            if (fallback) fallback.remove()
+            observer.disconnect()
+          }
+        })
+        if (app) observer.observe(app, { childList: true })
+
+        window.addEventListener('error', function () {
+          show('脚本运行失败，请刷新页面或转到登录页。')
+        })
+      })()
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
